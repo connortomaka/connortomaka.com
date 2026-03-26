@@ -63,7 +63,7 @@ a:hover { opacity: 0.4; }
     <div class="col-9">
       Bioinformatics/statistics at UCSF Ntranos Information Theory Group.<br><br>
       Interested in information theory, control theory, SuperCollider, sound poetry.<br><br>
-      <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bcdfd3d2d2d3cec8d3d1ddd7ddfcdbd1ddd5d092dfd3d1">[email&#160;protected]</a>
+      connortomaka&#64;gmail&#46;com
     </div>
   </div>
 </div>
@@ -274,7 +274,15 @@ Hegel - Aesthetics: Lectures on Fine Art — $1<br>      </div>
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
-  document.querySelectorAll('.nav-lin
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('visible'); });
+  document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
+  document.getElementById('page-' + name).classList.add('visible');
+  document.getElementById('nav-' + name).classList.add('active');
+}
+showPage('about');
+</script>
+
+</body>
+</html>
