@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Connor Tomaka</title>
-<meta name="description" content="Statistician, sound.">
+<meta name="description" content="Bioinformatics, sound.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
@@ -21,156 +21,90 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-a {
-  color: #000;
-  text-decoration: none;
-}
-a:hover {
-  opacity: 0.4;
-}
-
-/* Ulrik-style grid */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 1rem;
-}
-.col-3 {
-  width: 25%;
-  padding: 0.5rem 1rem;
-}
-.col-9 {
-  width: 75%;
-  padding: 0.5rem 1rem;
-}
-.col-quarter {
-  width: 25%;
-  padding: 0.5rem 1rem;
-}
-
-/* Pinned nav */
-.nav-bar {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  z-index: 10;
-}
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-}
-.nav-links a {
-  width: 25%;
-  padding: 0.5rem 1rem;
-}
-
-/* Content pages */
-.page {
-  padding: 0;
-}
-.page-content {
-  padding: 0.5rem 1rem;
-}
-
-/* Book list */
-.book-list {
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-/* Mobile */
+a { color: #000; text-decoration: none; }
+a:hover { opacity: 0.4; }
+.row { display: flex; flex-wrap: wrap; padding: 0 1rem; }
+.col-3 { width: 25%; padding: 0.5rem 1rem; }
+.col-9 { width: 75%; padding: 0.5rem 1rem; }
+.nav-bar { position: sticky; top: 0; background: #fff; z-index: 10; }
+.nav-links { display: flex; flex-wrap: wrap; padding: 0 1rem; }
+.nav-links a { width: 25%; padding: 0.5rem 1rem; cursor: pointer; }
+.nav-links a.active { opacity: 0.3; }
+.page { display: none; }
+.page.visible { display: block; }
+.book-list { font-size: 14px; line-height: 1.8; }
 @media (max-width: 768px) {
-  .col-3, .col-9, .col-quarter, .nav-links a {
-    width: 100%;
-  }
-  .nav-links a {
-    width: 50%;
-  }
+  .col-3, .col-9, .nav-links a { width: 100%; }
+  .nav-links a { width: 50%; }
 }
 </style>
 </head>
 <body>
 
-<!-- PINNED NAV (Ulrik structure: name left 25%, address right 75%, then nav links each 25%) -->
 <div class="nav-bar">
   <div class="row">
-    <div class="col-3"><a href="/"><strong style="font-weight:400;">Connor Tomaka</strong></a></div>
+    <div class="col-3"><a href="#" onclick="showPage('about');return false;" style="font-weight:400;">Connor Tomaka</a></div>
     <div class="col-9">San Francisco</div>
   </div>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#sound">Sound</a>
-    <a href="#research">Research</a>
-    <a href="#books">Books for Sale</a>
+    <a onclick="showPage('about')" id="nav-about">About</a>
+    <a onclick="showPage('sound')" id="nav-sound">Sound</a>
+    <a onclick="showPage('research')" id="nav-research">Research</a>
+    <a onclick="showPage('books')" id="nav-books">Books for Sale</a>
   </div>
 </div>
 
 <br>
 
-<!-- CURRENT (like Ulrik's current show announcement) -->
-<div class="row" id="about">
-  <div class="col-3"></div>
-  <div class="col-9">
-    Statistician at UCSF. Single-cell genomics, ATAC-seq, TCR-seq.<br>
-    Previously Lawrence Berkeley National Lab and UC Berkeley.<br><br>
-    Member of ONO. Electroacoustic composition, SuperCollider, CDP.<br><br>
-    connortomaka@gmail.com
+<!-- ABOUT -->
+<div class="page visible" id="page-about">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-9">
+      Bioinformatics/statistics at UCSF Ntranos Information Theory Group.<br><br>
+      Interested in information theory, control theory, SuperCollider, sound poetry.<br><br>
+      connortomaka@gmail.com
+    </div>
   </div>
 </div>
-
-<br><br>
 
 <!-- SOUND -->
-<div class="row" id="sound">
-  <div class="col-3"></div>
-  <div class="col-9">
-    ONO<br>
-    Electronics, percussion, 2015–present<br>
-    Red Summer (2020) · Your Future Is Metal (2018) · Spooks (2015) · Diegesis (2014)<br><br>
+<div class="page" id="page-sound">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-9">
+      ONO<br>
+      Electronics, percussion, 2015–present<br><br>
 
-    Eric Schmid & Connor Tomaka<br>
-    Mathematical Structuralism (Triest Editions, 2022)<br>
-    Structuralism & Functionalism (Nina Protocol)<br><br>
-
-    Solo<br>
-    Ant Voice Colony — lecture-performance system<br><br>
-
-    <span style="opacity:0.5;">Museum of Modern Art, New York · Stooj, Berlin · Critical Media Lab, Basel · CNMAT, Berkeley · Emily Harvey Foundation, New York · Climate Control, San Francisco · YBCA · KZSU, Stanford · Pech, Vienna</span>
+      <span style="opacity:0.5;">Stooj (Berlin), Center for New Music and Audio Technologies (Berkeley), Rue American 13 (Brussels), MCA (Chicago), WHPK (Chicago), MOCA (Cleveland), Detroit Symphony Orchestra, Indexical (Santa Cruz), Torus Gallery (LA), Cafe OTO (London), Keller Gallery (MIT), Emily Harvey Foundation (New York), Centralbanken (Oslo), Café des Arts and Cité Internationale des Arts (Paris), Climate Control (SF), The Lab (SF), Center for New Music (SF), Yerba Buena Center for the Arts (SF), KZSU (Stanford), and Pech (Vienna).</span>
+    </div>
   </div>
 </div>
-
-<br><br>
 
 <!-- RESEARCH -->
-<div class="row" id="research">
-  <div class="col-3"></div>
-  <div class="col-9">
-    Current<br>
-    Bioinformatics Core Data Coordinator, UCSF<br>
-    Ntranos Lab · Anderson Lab · Tang Lab · Bhushan Lab<br><br>
+<div class="page" id="page-research">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-9">
+      Bioinformatician<br>
+      Ntranos Information Theory Group, Diabetes Center, UCSF<br><br>
 
-    Publication<br>
-    Matos et al., Nature Plants (Blonder Lab, UC Berkeley)<br><br>
-
-    Previous<br>
-    Lawrence Berkeley National Lab, Northen Lab<br>
-    UC Berkeley, Blonder Lab<br><br>
-
-    Talks<br>
-    Umwelt — ant pheromone dynamics, Uexküll, Strau, Blom<br>
-    Logic, Methodology of Science & its Applications — with Eric Schmid, Emily Harvey Foundation
+      Previous<br>
+      UCSF, Lynch Lab<br>
+      Lawrence Berkeley National Lab, Northen Lab<br>
+      UC Berkeley, Blonder Lab
+    </div>
   </div>
 </div>
 
-<br><br>
-
 <!-- BOOKS FOR SALE -->
-<div class="row" id="books">
-  <div class="col-3"></div>
-  <div class="col-9">
-    Books for Sale<br>
-    <span style="opacity:0.5;">Email for availability</span><br><br>
-    <div class="book-list">
+<div class="page" id="page-books">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-9">
+      Books for Sale<br>
+      <span style="opacity:0.5;">Email for availability</span><br><br>
+      <div class="book-list">
 Ballard - Crash — $8<br>
 Borges - A Personal Anthology — $7<br>
 Burroughs - Queer — $5<br>
@@ -339,11 +273,20 @@ Delany - Nova — $7<br>
 Delany - Stars in My Pocket Like Grains of Sand — $8<br>
 Delany - Babel-17 — $5<br>
 Delany - Times Square Red, Times Square Blue — $9<br>
+      </div>
     </div>
   </div>
 </div>
 
-<br><br><br>
+<script>
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('visible');
+  document.getElementById('nav-' + name).classList.add('active');
+}
+showPage('about');
+</script>
 
 </body>
 </html>
